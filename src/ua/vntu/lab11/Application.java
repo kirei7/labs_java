@@ -14,7 +14,7 @@ public class Application {
     }
 
     private void run() {
-        mainFrame.create(dataListFrameHolder.getContainer());
+        mainFrame.setFrame(dataListFrameHolder.getContainer());
         mainFrame.setVisible(true);
     }
 

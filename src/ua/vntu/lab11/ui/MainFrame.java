@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class MainFrame extends JFrame{
     private Container container;
+    private Container currentFrame;
 
     public MainFrame() {
         super("Database view");
@@ -16,10 +17,12 @@ public class MainFrame extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         container = getContentPane();
         container.setLayout(new GridLayout(1,1));
+        container.add(currentFrame);
     }
 
-    public void create(Container frame) {
+    public void setFrame(Container frame) {
+        container.remove(currentFrame);
         container.add(frame);
-        //validate();
+        validate();
     }
 }

@@ -15,9 +15,9 @@ public class FileRewriter {
         //переписуємо зміст першого файлу у другий, видаляючи при цьому теги
         rewriter.rewrite(
                 //адрес файлу звідки
-                "/home/userok/workspace/idea/labs_java/lab7/test.txt",
+                "/home/userok/workspace/idea/labs_java/resources/lab7/test.txt",
                 //адрес файлу куди
-                "/home/userok/workspace/idea/labs_java/lab7/writed.txt"
+                "/home/userok/workspace/idea/labs_java/resources/lab7/writed.txt"
         );
 
     }

@@ -7,7 +7,7 @@ public class MainFrame extends JFrame{
     private Container container;
     private Container currentFrame;
 
-    public MainFrame() {
+    public MainFrame(Container currentFrame) {
         super("Database view");
         this.setBounds(
                 100, 100,   //координати x,y лівого верхнього кута вікна
@@ -20,9 +20,9 @@ public class MainFrame extends JFrame{
         container.add(currentFrame);
     }
 
-    public void setFrame(Container frame) {
+    /*public void setFrame(Container frame) {
         container.remove(currentFrame);
         container.add(frame);
         validate();
-    }
+    }*/
 }

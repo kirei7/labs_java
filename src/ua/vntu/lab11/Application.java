@@ -2,6 +2,7 @@ package ua.vntu.lab11;
 
 import ua.vntu.lab11.jdbc.CarDataDao;
 import ua.vntu.lab11.jdbc.MockCarDataDao;
+import ua.vntu.lab11.jdbc.PostgresCarDataDao;
 import ua.vntu.lab11.ui.DataListFrameHolder;
 import ua.vntu.lab11.ui.MainFrame;
 
@@ -12,7 +13,7 @@ public class Application {
     private MainFrame mainFrame;
 
     public Application() {
-        carDataDao = new MockCarDataDao();
+        carDataDao = new PostgresCarDataDao();
         dataListFrameHolder = new DataListFrameHolder(carDataDao);
         mainFrame = new MainFrame(dataListFrameHolder.getContainer());
     }

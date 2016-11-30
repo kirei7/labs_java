@@ -22,7 +22,6 @@ public class DataListFrameHolder {
     private DefaultTableModel tableModel;
     private Button addButton;
     private Button deleteButton;
-    private DataFetcher dataFetcher;
 
     private Panel inputPanel;
     private JTextField markField;
@@ -170,10 +169,11 @@ public class DataListFrameHolder {
             for (CarData carData : toDelete) {
                 carDataDao.remove(carData);
             }
-            for (int i : rowNums) {
-                tableModel.removeRow(i);
+            Collections.sort(rowNums);
+            for (int i = rowNums.size() - 1; i >= 0; i--) {
+                tableModel.removeRow(rowNums.get(i));
+                tableModel.fireTableDataChanged();
             }
-            tableModel.fireTableDataChanged();
         }
     }
 

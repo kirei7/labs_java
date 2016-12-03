@@ -4,7 +4,9 @@ import ua.vntu.lab11.CarData;
 
 import java.util.ArrayList;
 import java.util.List;
-
+// це ДАО, яке імітує роботу з БД - насправді дані зберігаються в робочій пам'яті комп'ютера
+// клас потрібен був лише для тестування програми, щоб кожен раз не підключатись до БД
+// можна його видалити
 public class MockCarDataDao implements CarDataDao {
 
     private List<CarData> list;

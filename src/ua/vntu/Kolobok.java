@@ -1,4 +1,10 @@
-package ua.vntu;
+package com.userok.learning;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Kolobok extends JFrame {
     volatile Graphics g;
@@ -46,9 +52,15 @@ public class Kolobok extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            first.notify();
-            second.notify();
-            third.notify();
+            synchronized (first) {
+                first.notify();
+            }
+            synchronized (second) {
+                second.notify();
+            }
+            synchronized (third) {
+                third.notify();
+            }
         }
     }
 
@@ -57,7 +69,15 @@ public class Kolobok extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                first.wait();
+                synchronized (first) {
+                    first.wait();
+                }
+                synchronized (second) {
+                    second.wait();
+                }
+                synchronized (third) {
+                    third.wait();
+                }
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
             }
@@ -100,3 +120,4 @@ public class Kolobok extends JFrame {
             y += ThreadLocalRandom.current().nextInt(-30, 30);
         }
     }
+}
